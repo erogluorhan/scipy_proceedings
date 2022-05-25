@@ -38,10 +38,10 @@ The Geoscience Community Analysis Toolkit (GeoCAT) team develops and maintains
 data analysis and visualization tools on structured and unstructured grids for
 the geosciences community in the Scientific Python Ecosystem (SPE). In response to
 dealing with increasing geoscientific data sizes, GeoCAT prioritizes scalability,
-ensuring its implementations to be scalable from personal laptops to HPC clusters.
+ensuring its implementations are scalable from personal laptops to HPC clusters.
 Another major goal of the GeoCAT team is to ensure community involvement throughout
 the whole project lifecycle, which is realized through an open development mindset
-by encouraging the users/contributors to get involved in any decision-making.
+by encouraging users and contributors to get involved in decision-making.
 
 .. class:: keywords
 
@@ -57,17 +57,17 @@ Research (NCAR)’s “Pivot to Python” initiative :cite:`pivot19`. The initia
 had an initial two-year roadmap with major milestones being: (1) Replicating
 NCL’s computational routines in Python, (2) training and support for
 transitioning NCL users into Python, and (3) moving tools into an open development
-model. GeoCAT essentially aims at creating scalable data analysis and
+model. GeoCAT aims to create scalable data analysis and
 visualization tools on structured and unstructured grids for the geosciences
 community in the SPE. The GeoCAT team is committed to open development, which
 helps the team prioritize community involvement at any level of the project
 lifecycle alongside having the whole software stack open-sourced.
 
-GeoCAT created several, now-established, Python tools that are hosted and
-managed publicly on Github to develop computation and visualization functions,
-which  are built on cornerstone Pangeo :cite:`pangeo18` (i.e. a community platform
+GeoCAT has created several, now-established, Python tools that are hosted and
+managed publicly on GitHub to develop computation and visualization functions.
+These tools are built on cornerstone Pangeo :cite:`pangeo18` (a community platform
 for big data geoscience) packages such as Xarray :cite:`xarray17`, Dask
-:cite:`dask15`, as well as Jupyter Notebooks, and is compatible with Numpy. Dask
+:cite:`dask15`, as well as Jupyter Notebooks. Dask
 compatibility allows the GeoCAT-comp functions to scale from personal laptops to
 high performance computing systems such as NCAR’s Casper, Cheyenne, and upcoming
 Derecho clusters :cite:`ams22craker`.
@@ -77,10 +77,10 @@ regridding and interpolation, to climatology and meteorology. GeoCAT-examples
 provides over 140 publication-quality plotting scripts in Python for Earth
 sciences. It also houses Jupyter notebooks with high-performance, interactive
 plots that enable features such as pan and zoom on fine-resolution geoscience
-data (e.g. ~3 km data rendered within a few tens of seconds to few minutes on
+data (e.g. ~3 km data rendered within a few tens of seconds to a few minutes on
 personal laptops). GeoCAT-viz enables higher-level implementation of Matplotlib
-and Cartopy plotting capabilities through it's variety of easy to use
-visualization convenience functions for GeoCAT-examples. GeoCAT also maintains
+and Cartopy plotting capabilities through its variety of easy to use
+visualization convenience functions. GeoCAT also maintains
 WRF-Python (Weather Research and Forecasting), which works with WRF-ARW model
 output and provides diagnostic and interpolation routines.
 
@@ -93,54 +93,52 @@ on the development of data analysis and visualization functions that operate
 directly on the native grid as well as establish an active community of
 user-contributors.
 
-This paper will provide insights about the GeoCAT's software stack and
+This paper will provide insights about GeoCAT's software stack and
 current status, team scope and near-term plans, open development methodology,
-as well as ways of community involvement.
+as well as current pathways of community involvement.
 
 GeoCAT Software
 ---------------
 
-The GeoCAT team develops and maintains several open-source software tools. Before
-describing those tools, it is vital to explain in detail how the team implements the
-continuous integration and continuous delivery/deployment (CI/CD) in consistence
-for all of those tools.
+The software tools maintained by GeoCAT implement
+continuous integration and continuous delivery/deployment (CI/CD).
 
 Continuous Integration and Continuous Delivery/Deployment (CI/CD)
 =================================================================
 
-GeoCAT employs a continuous delivery model, which has been achieved through the use
-of a monthly package release cycle on package management systems and package indexes
+GeoCAT employs a continuous delivery model, with 
+a monthly package release cycle on package management systems and package indexes
 such as Conda :cite:`conda` and PyPI :cite:`conda`. This model helps the team make
 new functions available as soon as they are implemented and address potential errors
-pretty quickly. To assist this process, the team utilizes advanced  technologies
-throughout Github assets to ensure automation, unit testing and code coverage, as
+quickly. To assist this process, the team utilizes multiple tools
+throughout GitHub assets to ensure automation, unit testing and code coverage, as
 well as licensing and reproducibility. Figure :ref:`fig1badges`, for example,
 illustrates the set of badges from one of our software tools, GeoCAT's computational
 component, GeoCAT-comp, which shows the near real-time status of each CI/CD
-implementation at any time in the Github repository homepage.
+implementation at any time in the GitHub repository homepage.
 
 CI build tests of our repositories are implemented and
 automated (for pushed commits, pull requests, and daily scheduled execution) via
-Github Actions workflows :cite:`githubactions`, and the "CI" badge shows if those
-workflows are passing or failing. Similarly, the "CONDA-BUILDS" badge shows if the
+GitHub Actions workflows :cite:`githubactions`, and the "CI" badge displays the status of those workflows.
+Similarly, the "CONDA-BUILDS" badge shows if the
 conda recipe works successfully for the repository. The percent code coverage through
 unit tests are being analyzed with the "codecov" Python package :cite:`codecov`, and
 its overall results as well as details per code script can be seen via the "COVERAGE"
 badge. Each of our software repositories has a corresponding documentation page that
 is populated mostly-automatically through Sphinx Python documentation generator
 :cite:`sphinx` and published through ReadTheDocs :cite:`readthedocs` via an automated
-building/versioning schema. The "DOCS" badge provides a link to the documentation page
+building and versioning schema. The "DOCS" badge provides a link to the documentation page
 as well as shows failures, if any, with the documentation rendering process. Figure
 :ref:`fig2rtd` shows the documentation homepage of GeoCAT-comp for instance. The
 "NCAR" and "PYPI" badges in the "Package" row shows and links to the latest versions
 of the software tool distributed through NCAR's Conda channel and PyPI, respectively.
 The "LICENSE" badge provides a link to our software licenses, which is Apache License
 version 2.0 for all of the GeoCAT stack that enables the redistribution of the
-open-source software products on an "AS IS" basis. Finally, to provide reproducibility
+open-source software products on an "as is" basis. Finally, to provide reproducibility
 of our software products (either for the latest or any older version), we publish
 version-specific Digital Object Identifiers (DOIs), which can be accessed through the
 "DOI" badge. This allows the end-user to accurately cite the specific version of the
-GeoCAT tools they used for scientific/research purposes.
+GeoCAT tools they used for reproducibility.
 
 .. figure:: figures/fig1_badges.png
    :scale: 35%
@@ -202,10 +200,10 @@ In addition, GeoCAT-f2py is automatically installed through GeoCAT-comp
 installation, and all functions contained in the "geocat.f2py" package are
 imported transparently into the "geocat.comp" namespace. Thus, GeoCAT-comp
 serves as a user API to access the entire computational toolkit even though
-its Github repository itself only contains pure Python code from the
+its GitHub repository itself only contains pure Python code from the
 developer’s perspective. Whenever prospective contributors want to add new
 computational functionality implemented as pure Python, GeoCAT-comp is the
-Github repository to deal with. Therefore, there is no onus on contributors
+GitHub repository to deal with. Therefore, there is no onus on contributors
 of pure Python code to build/compile/test any compiled code (i.e. Fortran)
 at GeoCAT-comp level.
 
@@ -322,7 +320,7 @@ grids versus a few unstructured grid models.
 The UXarray project has implemented data input/output functions for UGRID,
 SCRIP, and Exodus, as well as methods for surface area and integration
 calculations so far.The team is currently conducting open discussions
-(through Github Discussions) with community members, who are interested
+(through GitHub Discussions) with community members, who are interested
 in unstructured grids research and development, intha order to prioritize
 data analysis operators that will be implemented throughout the project
 lifecycle.
@@ -335,7 +333,7 @@ GeoCAT is committed to an open development model. With this model, we not only
 have our project stack open-sourced but also ensure most of the project assets
 that are directly related to the software development lifecycle are publicly
 accessible. In order to implement this model, GeoCAT provides all of its software
-tools as Github repositories with public Github project boards and roadmaps,
+tools as GitHub repositories with public GitHub project boards and roadmaps,
 issue tracking and development reviewing, comprehensive documentation for
 users/contributors such as Contributor’s Guide :cite:`geocatcontribguide` and
 toolkit-specific documentation, along with community announcements on the GeoCAT
