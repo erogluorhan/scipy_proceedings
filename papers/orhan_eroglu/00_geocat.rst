@@ -160,10 +160,10 @@ GeoCAT-comp (and GeoCAT-f2py)
 
 GeoCAT-comp is the computational component of the GeoCAT project as can be seen in
 Figure :ref:`fig3structure`, and it houses implementations of geoscience data analysis
-functions. Novel research and development is conducted for analyzing structured as
-well as unstructured grid data from various research fields such as climate,
+functions. Novel research and development is conducted for analyzing structured and
+unstructured grid data from various research fields including climate,
 weather, atmosphere, ocean, etc. In addition, some of the functionalities of
-GeoCAT-comp are inspired/reimplemented from NCAR Command Language (NCL).
+GeoCAT-comp are modernized versions of functions from NCAR Command Language (NCL).
 
 Spherical harmonics (both decomposition and recomposition as well as area
 weighting); Fourier transforms such as band-block, band-pass, low-pass, and
@@ -176,7 +176,7 @@ such as bilinear interpolation of a rectilinear to another rectilinear grid,
 hybrid-sigma levels to isobaric levels, and sigma to hybrid coordinates; empirical
 orthogonal function (EOF) analysis; are some of the functions that are made
 available through GeoCAT-comp. GeoCAT-comp documentation :cite:`geocatcomprtd`
-provides signatures and descriptions of these functions as well as a line to the
+provides signatures and descriptions of these functions as well as a link to
 usage examples.
 
 .. figure:: figures/fig3_structure.png
@@ -188,23 +188,23 @@ usage examples.
    :cite:`geocatcontribguide` :label:`fig3structure`
 
 Many of the computational functions in GeoCAT are implemented in pure Python.
-However, there are some others that are implemented in Fortran but wrapped up
-in Python. To facilitate contribution, the whole GeoCAT-comp structure is split
-into two repositories with respect to being either pure-Python or Python with
-compiled codes (i.e. Fortran) implementations. Such implementation layers are
-handled within GeoCAT-comp and GeoCAT-f2py repositories, respectively.
+However, there are others that remain implemented in Fortran, but are wrapped
+in Python. The whole GeoCAT-comp structure is split
+into two repositories with respect to being either pure Python or Python with
+compiled code (i.e. Fortran) implementations. Such implementation layers are
+handled with the GeoCAT-comp and GeoCAT-f2py repositories respectively.
 
-GeoCAT-comp code-base does not explicitly contain or require any compiled
-code, making it more accessible to the general Python community at large.
-In addition, GeoCAT-f2py is automatically installed through GeoCAT-comp
+GeoCAT-comp's code-base does not explicitly contain or require any compiled
+code, making it more accessible to the general Python community.
+Additionally, GeoCAT-f2py is automatically installed through GeoCAT-comp's
 installation, and all functions contained in the "geocat.f2py" package are
 imported transparently into the "geocat.comp" namespace. Thus, GeoCAT-comp
 serves as a user API to access the entire computational toolkit even though
 its GitHub repository itself only contains pure Python code from the
-developer’s perspective. Whenever prospective contributors want to add new
-computational functionality implemented as pure Python, GeoCAT-comp is the
-GitHub repository to deal with. Therefore, there is no onus on contributors
-of pure Python code to build/compile/test any compiled code (i.e. Fortran)
+developer’s perspective. Whenever prospective contributors want to contribute 
+computational functionality in pure Python, GeoCAT-comp is the only
+GitHub repository they need to deal with. Therefore, there is no onus on contributors
+of pure Python code to build, compile, or test any compiled code
 at GeoCAT-comp level.
 
 GeoCAT-examples (and GeoCAT-viz)
@@ -213,12 +213,12 @@ GeoCAT-examples (and GeoCAT-viz)
 GeoCAT-examples :cite:`geocatexamplesrepo` was created to address a few of
 the original milestones of NCAR's "Pivot to Python" initiative: (1) to
 provide the geoscience community with well-documented visualization examples
-for several plotting classes in the SPE, (2) to help transition NCL users
+for several plotting classes in the SPE, and (2) to help transition NCL users
 into the Python ecosystem through providing such resources. It was born in
-early 2020 as the result of a few-day hackathon event among the GeoCAT team
-and several other scientists and developers from various NCAR labs/groups.
-It has since grown to house novel visualization examples as well as showcases
-of the capabilities of other GeoCAT aspects like GeoCAT-comp, along with
+early 2020 as the result of a hackathon event among the GeoCAT team
+and several other NCAR collaborators.
+It has since grown to house novel visualization examples and showcase
+the capabilities of other GeoCAT endeavors like GeoCAT-comp, along with
 newer technologies like interactive plotting notebooks. Figure
 :ref:`fig4cmap` illustrates one of the unique GeoCAT-examples cases that
 was aimed at exploring the best practices for data visualization
@@ -237,25 +237,24 @@ example Python plotting scripts, demonstrating functionalities from Python
 packages like Matplotlib, Cartopy, Numpy, and Xarray. The gallery includes
 plots from a range of visualization categories such as box plots, contours,
 meteograms, overlays, projections, shapefiles, streamlines, trajectories,
-etc. In addition, it houses plotting examples for individual GeoCAT-comp
+and more. In addition, it houses plotting examples for individual GeoCAT-comp
 analysis functions.
 
-Despite the capabilities of Matplotlib and Cartopy to reproduce almost all
+Despite Matplotlib and Cartopy's capabilities to reproduce almost all
 of NCL plots, there was one significant caveat with using their low-level
 implementations against NCL: NCL's high-level plotting functions allowed
 scientists to plot most of the cases in only a few tens of lines of codes
 (LOC) while the Matplotlib and Cartopy stack required writing a few
 hundreds of LOC. In order to build a higher-level implementation on top of
-Matplotlib and Cartopy while recreating the NCL-like plots (from vital
-plotting capabilities that were not readily available in Python ecosystem
-at the time such as Taylor, and curly vectors to more
-cosmetic or plotting style-related effects such as font sizes, color
-schemes, etc.), the GeoCAT-viz library :cite:`geocatvizrepo` has been
-implemented. Use of functions from this library in GeoCAT-examples
+Matplotlib and Cartopy while recreating the NCL-style plots (from vital
+plotting capabilities not widely available in Python ecosystem
+at the time such as Taylor diagrams, and curly vectors, to more
+stylistic changes that resemble NCL plots), the GeoCAT-viz library :cite:`geocatvizrepo` has been
+developed. Use of functions from this library in GeoCAT-examples
 significantly reduces the LOC requirements for most of the visualization
 examples to comparable numbers to those of NCL's. Figure :ref:`fig5viz`
-shows Taylor diagram and curly vector examples that were made available
-with the recent implementations in GeoCAT-viz.
+shows Taylor diagram and curly vector examples that have been created with
+the help of GeoCAT-viz.
 
 .. figure:: figures/fig5_viz.png
    :scale: 28%
@@ -280,7 +279,7 @@ the amount of post-processing tools necessary to visualize WRF output
 files.
 
 Even though there is no continuous development in WRF-Python as it is in
-the rest of the GeoCAT stack, the package is still maintained strongly
+the rest of the GeoCAT stack, the package is still maintained
 with timely responses and bug-fix releases to the issues reported by the
 user community.
 
@@ -296,12 +295,12 @@ sustainable, scalable tools that facilitate operating on unstructured climate
 and global weather data :cite:`raijin`. The GeoCAT team is in charge of the
 software development of Project Raijin, which mainly consists of implementing
 visualization and analysis functions in the SPE to be executed on native
-grids. While doing so, GeoCAT is also responsible of establishing an open
+grids. While doing so, GeoCAT is also responsible for establishing an open
 development environment, clearly documenting the implementation work, and
-aligning the deployments with the project milestones as well as SPE
+aligning deployments with the project milestones as well as SPE
 requirements and specifications.
 
-To realize the aforementioned functionalities, GeoCAT created the
+GeoCAT has created the
 Xarray-based Uxarray package :cite:`uxarrayrepo` to recognize unstructured
 grid models through partnership with the geoscience community groups. UXarray
 is built on top of the built-in Xarray Dataset functionalities while
@@ -319,9 +318,9 @@ grids versus a few unstructured grid models.
 
 The UXarray project has implemented data input/output functions for UGRID,
 SCRIP, and Exodus, as well as methods for surface area and integration
-calculations so far.The team is currently conducting open discussions
-(through GitHub Discussions) with community members, who are interested
-in unstructured grids research and development, intha order to prioritize
+calculations so far. The team is currently conducting using GitHub discussions
+to talk with with community members who are interested
+in unstructured grids research and development in order to prioritize
 data analysis operators that will be implemented throughout the project
 lifecycle.
 
@@ -335,12 +334,12 @@ that are directly related to the software development lifecycle are publicly
 accessible. In order to implement this model, GeoCAT provides all of its software
 tools as GitHub repositories with public GitHub project boards and roadmaps,
 issue tracking and development reviewing, comprehensive documentation for
-users/contributors such as Contributor’s Guide :cite:`geocatcontribguide` and
+users and contributors such as a Contributor’s Guide :cite:`geocatcontribguide` and
 toolkit-specific documentation, along with community announcements on the GeoCAT
 blog. Furthermore, GeoCAT encourages community feedback and contribution at any
-level with inclusive and welcoming language. As a result of this, numerous
-community requests and feedback have played significant role in forming/revising
-GeoCAT roadmap and projects' scope. We are hoping to increase the community
+level. As a result of this, numerous
+community requests and feedback have played significant role in forming and revising
+GeoCAT's roadmap and project scopes. We are hoping to increase the community
 involvement in our development lifecycle.
 
 Community engagement
@@ -352,9 +351,8 @@ and attends various community events.
 The GeoCAT team has also encouraged undergraduate and graduate student
 engagement in the Python ecosystem through participation in NCAR's Summer
 Internships in Parallel Computational Science (SIParCS). GeoCAT-examples and
-GeoCAT-viz has received significant contributions through NCAR's Summer
-Internships in Parallel Computational Science (SIParCS) in 2020 and 2021
-summers.
+GeoCAT-viz in particular have received significant contributions through
+SIParCS interns in past years.
 
 Project Pythia
 ==============
