@@ -167,8 +167,8 @@ GeoCAT-comp are modernized versions of functions from NCAR Command Language (NCL
 
 Spherical harmonics (both decomposition and recomposition as well as area
 weighting); Fourier transforms such as band-block, band-pass, low-pass, and
-high-pass; meteorological variables such as relative humidity, dewpoint temperature,
-heat index, saturation vapure pressure, etc.; climatology functions such as climate
+high-pass; meteorological variables such as relative humidity, dew point temperature,
+heat index, saturation vapor pressure, etc.; climatology functions such as climate
 average over multiple years, daily/monthly/seasonal averages, as well as anomalies;
 regridding of curvilinear grid to rectilinear grid, unstructured grid to rectilinear
 grid, curvilinear grid to unstructured grid, and vice versa; interpolation methods
@@ -176,7 +176,7 @@ such as bilinear interpolation of a rectilinear to another rectilinear grid,
 hybrid-sigma levels to isobaric levels, and sigma to hybrid coordinates; empirical
 orthogonal function (EOF) analysis; are some of the functions that are made
 available through GeoCAT-comp. GeoCAT-comp documentation :cite:`geocatcomprtd`
-provides signatures and descriptions of these functions as well as a link to
+provides signatures and descriptions of these functions as well as links to
 usage examples.
 
 .. figure:: figures/fig3_structure.png
