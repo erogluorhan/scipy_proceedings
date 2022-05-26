@@ -303,7 +303,7 @@ GeoCAT has created the
 Xarray-based Uxarray package :cite:`uxarrayrepo` to recognize unstructured
 grid models through partnership with the geoscience community groups. UXarray
 is built on top of the built-in Xarray Dataset functionalities while
-recognizing several unstructured grid formats (UGRID, SCRIP, Exodus for now).
+recognizing several unstructured grid formats (UGRID, SCRIP, and Exodus for now).
 Since there are more unstructured mesh models in the community than UXarray
 natively supports, its architecture will also support addition of new models.
 Figure :ref:`fig6raijin` shows the regularly structured “latitude-longitude”
