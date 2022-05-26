@@ -260,8 +260,7 @@ the help of GeoCAT-viz.
    :scale: 28%
    :figclass: bht
 
-   Taylor diagram and curly vector examples that were released with
-   GeoCAT-viz v2022.05.0 :label:`fig5viz`
+   Taylor diagram and curly vector examples that created with the help of GeoCAT-viz :label:`fig5viz`
 
 WRF-Python
 ==========
